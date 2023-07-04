@@ -1,15 +1,17 @@
+const { ethers } = require("hardhat");
 
 async function main() {
 
     const [deployer] = await ethers.getSigners();
+    console.log(deployer.provider);
 
     console.log(
     "Deploying contracts with the account:",
     deployer.address
     );
-    console.log("##### => ", deployer)
-    const accountBalance = await deployer.Bal;
-    console.log("Account balance:", accountBalance);
+    // console.log("##### => ", await deployer.provider.getBalance())
+    // const accountBalance = await deployer.accountBalance;
+    // console.log("Account balance:", accountBalance);
 
     const MyNFT = await ethers.getContractFactory("MyNFT");
     const contract = await MyNFT.deploy();
