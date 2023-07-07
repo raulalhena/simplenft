@@ -18,6 +18,10 @@ contract MyNFT is ERC721, Ownable {
         isMintEnabled = !isMintEnabled;
     }
 
+    function add(uint256 a, uint256 b) public returns (uint256){
+        return a + b;
+    }
+
     function mint() external payable {
         require(isMintEnabled, 'minting not enabled');
         require(mintedWallets[msg.sender] < 1, 'exceeds max per wallet');
